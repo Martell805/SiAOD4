@@ -6,6 +6,7 @@ using namespace std;
 
 int main() {
     PerfectlyBalancedBinaryTree perfectlyBalancedBinaryTree;
+
     perfectlyBalancedBinaryTree.add('0');
     perfectlyBalancedBinaryTree.add('1');
     perfectlyBalancedBinaryTree.add('2');

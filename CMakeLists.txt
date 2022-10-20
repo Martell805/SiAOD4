@@ -3,4 +3,4 @@ project(SiAOD4)
 
 set(CMAKE_CXX_STANDARD 23)
 
-add_executable(SiAOD4 main.cpp PerfectlyBalancedBinaryTree.h PerfectlyBalancedBinaryTree.cpp PBBTNode.h PBBTNode.cpp)
+add_executable(SiAOD4 main.cpp PerfectlyBalancedBinaryTree.h PerfectlyBalancedBinaryTree.cpp PBBTNode.h PBBTNode.cpp exceptions/TreeIsNotInitializedException.h)

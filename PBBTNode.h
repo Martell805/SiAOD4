@@ -8,29 +8,24 @@ using namespace std;
 class PBBTNode {
 protected:
     int children = 0;
-    int childrenLeft = 0;
-    int childrenRight = 0;
-    PBBTNode *parent = nullptr;
     PBBTNode *left = nullptr;
     PBBTNode *right = nullptr;
     char value;
 public:
-    PBBTNode(char value, PBBTNode *parent=nullptr);
+    explicit PBBTNode(char value_);
 public:
-    int getChildren() const;
-    PBBTNode *getParent() const;
-    void setParent(PBBTNode *parent);
-    PBBTNode *getLeft() const;
-    void setLeft(PBBTNode *left);
-    PBBTNode *getRight() const;
-    void setRight(PBBTNode *right);
-    char getValue() const;
-    void setValue(char value);
+    [[nodiscard]] int getChildren() const;
+    [[nodiscard]] PBBTNode *getLeft() const;
+    void setLeft(PBBTNode *left_);
+    [[nodiscard]] PBBTNode *getRight() const;
+    void setRight(PBBTNode *right_);
+    [[nodiscard]] char getValue() const;
+    void setValue(char value_);
 public:
-    void add(char value);
+    void add(char value_);
     void print(int tabLevel = 0) const;
-    int getDepth(char value) const;
-    char getMaxLeaf() const;
+    [[nodiscard]] int getDepth(char value_) const;
+    [[nodiscard]] char getMaxLeaf() const;
 };
 
 

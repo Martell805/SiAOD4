@@ -19,7 +19,7 @@ void PerfectlyBalancedBinaryTree::print() const {
 
 char PerfectlyBalancedBinaryTree::getLeftmost() const {
     if(this->root == nullptr){
-        throw -4;
+        return 0;
     }
 
     PBBTNode *currentNode = this->root;
@@ -30,7 +30,7 @@ char PerfectlyBalancedBinaryTree::getLeftmost() const {
 
 int PerfectlyBalancedBinaryTree::getDepth(char value) const {
     if(this->root == nullptr){
-        throw -4;
+        return 0;
     }
 
     return this->root->getDepth(value);
@@ -38,7 +38,7 @@ int PerfectlyBalancedBinaryTree::getDepth(char value) const {
 
 char PerfectlyBalancedBinaryTree::getMaxLeaf() const {
     if(this->root == nullptr){
-        throw -4;
+        return 0;
     }
 
     return this->root->getMaxLeaf();

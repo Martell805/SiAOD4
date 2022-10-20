@@ -7,12 +7,12 @@ class PerfectlyBalancedBinaryTree {
 protected:
     PBBTNode *root = nullptr;
 public:
-    int getSize() const;
+    [[nodiscard]] int getSize() const;
     void add(char value);
     void print() const;
-    char getLeftmost() const;
-    int getDepth(char value) const;
-    char getMaxLeaf() const;
+    [[nodiscard]] char getLeftmost() const;
+    [[nodiscard]] int getDepth(char value) const;
+    [[nodiscard]] char getMaxLeaf() const;
 };
 
 

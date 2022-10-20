@@ -1,66 +1,52 @@
 #include "PBBTNode.h"
 
-PBBTNode::PBBTNode(char value, PBBTNode *parent) : value(value), parent(parent) {}
+PBBTNode::PBBTNode(char value_) : value(value_) {}
 
 int PBBTNode::getChildren() const {
     return children;
-}
-
-PBBTNode *PBBTNode::getParent() const {
-    return parent;
-}
-
-void PBBTNode::setParent(PBBTNode *parent) {
-    this->parent = parent;
 }
 
 PBBTNode *PBBTNode::getLeft() const {
     return left;
 }
 
-void PBBTNode::setLeft(PBBTNode *left) {
-    this->left = left;
-    left->setParent(this);
+void PBBTNode::setLeft(PBBTNode *left_) {
+    this->left = left_;
     this->children++;
-    this->childrenLeft++;
 }
 
 PBBTNode *PBBTNode::getRight() const {
     return right;
 }
 
-void PBBTNode::setRight(PBBTNode *right) {
-    this->right = right;
-    right->setParent(this);
+void PBBTNode::setRight(PBBTNode *right_) {
+    this->right = right_;
     this->children++;
-    this->childrenRight++;
 }
 
 char PBBTNode::getValue() const {
     return value;
 }
 
-void PBBTNode::setValue(char value) {
-    this->value = value;
+void PBBTNode::setValue(char value_) {
+    this->value = value_;
 }
 
-void PBBTNode::add(char value) {
+void PBBTNode::add(char value_) {
     if (this->left == nullptr) {
-        this->setLeft(new PBBTNode(value, this));
+        this->setLeft(new PBBTNode(value_));
         return;
     }
 
     if (this->right == nullptr) {
-        this->setRight(new PBBTNode(value, this));
+        this->setRight(new PBBTNode(value_));
         return;
     }
 
-    if (this->childrenLeft <= this->childrenRight) {
-        this->left->add(value);
-        this->childrenLeft++;
+    if (this->left->getChildren() <= this->right->getChildren()) {
+        this->left->add(value_);
     } else {
-        this->right->add(value);
-        this->childrenRight++;
+        this->right->add(value_);
     }
 }
 
@@ -71,18 +57,18 @@ void PBBTNode::print(int tabLevel) const {
    if(this->right != nullptr) this->right->print(tabLevel + 1);
 }
 
-int PBBTNode::getDepth(char value) const {
-    if(this->value == value) return 0;
+int PBBTNode::getDepth(char value_) const {
+    if(this->value == value_) return 0;
 
     int depthLeft = INT32_MAX;
     int depthRight = INT32_MAX;
 
     if(this->left != nullptr) {
-        depthLeft = this->left->getDepth(value);
+        depthLeft = this->left->getDepth(value_);
     }
 
     if(this->right != nullptr) {
-        depthRight = this->right->getDepth(value);
+        depthRight = this->right->getDepth(value_);
     }
 
     if(depthLeft != INT32_MAX and depthLeft <= depthRight) {
