@@ -1,7 +1,7 @@
 #include "PerfectlyBalancedBinaryTree.h"
 
 int PerfectlyBalancedBinaryTree::getSize() const {
-    return this->root->getChildren() ? (this->root != nullptr) : 0;
+    return this->root->getChildren() + 1 ? (this->root != nullptr) : 0;
 }
 
 void PerfectlyBalancedBinaryTree::add(char value) {
