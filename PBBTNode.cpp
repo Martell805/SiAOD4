@@ -45,8 +45,10 @@ void PBBTNode::add(char value_) {
 
     if (this->left->getChildren() <= this->right->getChildren()) {
         this->left->add(value_);
+        children++;
     } else {
         this->right->add(value_);
+        children++;
     }
 }
 
